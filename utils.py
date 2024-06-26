@@ -4,8 +4,8 @@ from datetime import datetime
 from flask import jsonify
 
 
-FLIGHT_SCHEDULES_URL = "https://challange.usecosmos.cloud/flight_schedules.json"
-FLIGHT_DELAYS_URL = "https://challange.usecosmos.cloud/flight_delays.json"
+FLIGHT_SCHEDULES_URL = "https://challenge.usecosmos.cloud/flight_schedules.json"
+FLIGHT_DELAYS_URL = "https://challenge.usecosmos.cloud/flight_delays.json"
 
 
 def convert_delays_type(delays_dict):
