@@ -34,7 +34,7 @@ def get_total_delay_minutes(scheduled_departure_at, actual_departure_at):
 
     difference_in_minutes = time_difference.total_seconds() / 60
 
-    return difference_in_minutes
+    return max(0, difference_in_minutes)
 
 
 def fetch_flight_schedules():
