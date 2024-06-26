@@ -58,7 +58,7 @@ def process_schedule_data():
                         'MarketingCarrier.FlightNumber', 'MarketingCarrier.AirlineID', 'FlightStatus.Definition']
     schedules_df = schedules_df[selected_columns]
 
-    selected_columns = {
+    renamed_columns = {
         'MarketingCarrier.FlightNumber': 'flight_number',
         'MarketingCarrier.AirlineID': 'airline',
         'Departure.AirportCode': 'origin',
@@ -68,7 +68,7 @@ def process_schedule_data():
         'Departure.ActualTimeUTC.DateTime': 'actual_departure_at',
         'FlightStatus.Definition': 'flight_status',
     }
-    schedules_df.rename(columns=selected_columns, inplace=True)
+    schedules_df.rename(columns=renamed_columns, inplace=True)
 
     return schedules_df
 
@@ -78,18 +78,18 @@ def process_delay_data():
 
     delays_df = pd.json_normalize(delays, record_path="FlightLegs", 
                                   meta=[["Flight", "OperatingFlight", "Number"]], 
-                                  sep='_', max_level=1)
+                                  max_level=1)
 
     delays_df = pd.DataFrame(delays_df)
 
-    selected_columns = ['Flight_OperatingFlight_Number', 'Departure_Delay']
+    selected_columns = ['Flight.OperatingFlight.Number', 'Departure.Delay']
     delays_df = delays_df[selected_columns]
 
-    selected_columns = {
-        'Flight_OperatingFlight_Number': 'flight_number',
-        'Departure_Delay': 'delays',
+    renamed_columns = {
+        'Flight.OperatingFlight.Number': 'flight_number',
+        'Departure.Delay': 'delays',
     }
-    delays_df.rename(columns=selected_columns, inplace=True)
+    delays_df.rename(columns=renamed_columns, inplace=True)
 
     return delays_df
 
