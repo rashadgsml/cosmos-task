@@ -1,6 +1,7 @@
 # Flight Delay API
 
 ## Project Links
+**You can test the API via Swagger Documentation**
 - **Swagger UI**: [Swagger Documentation](https://cosmos-task-b0ea2d2d1d46.herokuapp.com/apidocs)
 - **Flights API**: [Flights Endpoint](https://cosmos-task-b0ea2d2d1d46.herokuapp.com/flights)
 
